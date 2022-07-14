@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@8.3.1/dist/css/shepherd.css"/>
+</head>
+<body style="margin: 0; padding: 0;">
+
+<div style="width: 60%; max-width: 800px; min-width: 800px; min-height: 800px; position: fixed;background: url(imagens/dados.png) no-repeat; background-size: 100%; left: 20%;">
+
+	<a class="aqui" href="javascript:;" style=" width: 105px; height: 20px; position: absolute; bottom: 46%; left: 0%; display: block;"></a>
+
+	<a class="aqui2" href="javascript:;" style=" width: 105px; height: 20px; position: absolute; bottom: 46%; left: 13%; display: block;"></a>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/shepherd.js@8.3.1/dist/js/shepherd.min.js"></script>
+
+<script type="text/javascript">
+	
+const tour = new Shepherd.Tour({
+	useModalOverlay: true,
+  defaultStepOptions: {
+    cancelIcon: {
+      enabled: true
+    },
+    classes: 'class-1 class-2',
+    scrollTo: { behavior: 'smooth', block: 'center' }
+  }
+});
+
+tour.addStep({
+  title: 'Tour Dados do Curso',
+  text: `Olá, este é nosso tour guiado\
+  continue para ver dicas de preenchimento desta tela.\ Vamos lá?`,
+  attachTo: {
+    element: '.hero-example',
+    on: 'bottom'
+  },
+  buttons: [
+    
+    {
+      action() {
+        return this.next();
+      },
+      text: 'Continuar'
+    }
+  ],
+  id: 'creating'
+});
+
+
+tour.addStep({
+  id: 'example-step',
+  text: 'Não flegar "Vender na Web".',
+  attachTo: {
+    element: '.aqui',
+    on: 'bottom'
+  },
+  classes: 'example-step-extra-class',
+  buttons: [
+    {
+      text: 'Próximo',
+      action: tour.next
+    }
+  ]
+});
+
+tour.addStep({
+  id: 'example-step',
+  text: 'Flegar "Exibir no Portal".',
+  attachTo: {
+    element: '.aqui2',
+    on: 'top'
+  },
+  classes: 'example-step-extra-class',
+  buttons: [
+    {
+      text: 'Próximo',
+      action: tour.next
+    }
+  ]
+});
+
+
+
+
+tour.start();
+
+</script>
+
+</body>
+</html>
